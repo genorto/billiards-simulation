@@ -1,7 +1,7 @@
 import numpy as np
 
-from physics import state
-from physics.integrator import integrator
+from src.physics import state
+from src.physics.integrator import integrator
 
 if __name__ == "__main__":
     ball1 = state.Ball(5, 1, np.array([0, 0]), np.array([1, 1]))

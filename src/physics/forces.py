@@ -2,7 +2,7 @@ from typing import Any, TypeAlias
 
 import numpy as np
 
-from physics.state import Ball
+from src.physics.state import Ball
 
 Vec2: TypeAlias = np.ndarray[Any, np.dtype[np.float64]]
 

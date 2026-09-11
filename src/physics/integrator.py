@@ -3,8 +3,8 @@ from typing import Any
 import numpy as np
 from scipy import integrate
 
-from physics.dynamics import dynamics
-from physics.state import Ball, to_vector
+from src.physics.dynamics import dynamics
+from src.physics.state import Ball, to_vector
 
 
 def integrator(
