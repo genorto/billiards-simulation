@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from src.state import Ball
+from src.physics.state import Ball
 
 
 @dataclass(frozen=True)

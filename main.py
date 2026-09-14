@@ -1,8 +1,8 @@
 import argparse
 
-from src.analysis import check_conservation, print_conservation_report
-from src.integrator import integrator
-from src.scenarios import SCENARIOS, find_scenario
+from src.physics.analysis import check_conservation, print_conservation_report
+from src.physics.integrator import integrator
+from src.physics.scenarios import SCENARIOS, find_scenario
 
 
 def main() -> None:
@@ -26,15 +26,15 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.list:
-        for scenario in SCENARIOS:
-            print(scenario.name)
+        for available_scenario in SCENARIOS:
+            print(available_scenario.name)
         return
 
     scenario = find_scenario(args.scenario)
     if scenario is None:
         parser.error(f"Сценарий {args.scenario!r} не найден. Используйте --list")
 
-    from src.visualization import animate_simulation
+    from src.graphics.visualization import animate_simulation
 
     t, y = integrator(
         scenario.ball1,

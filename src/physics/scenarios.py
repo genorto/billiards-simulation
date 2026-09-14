@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from src.state import Ball, make_ball
+from src.physics.state import Ball, make_ball
 
 DEFAULT_K = 6.4e8
 

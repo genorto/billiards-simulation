@@ -3,9 +3,9 @@ from dataclasses import dataclass
 import numpy as np
 import pytest
 
-from src.analysis import ConservationResult, check_conservation
-from src.integrator import integrator
-from src.scenarios import SCENARIOS, Scenario
+from src.physics.analysis import ConservationResult, check_conservation
+from src.physics.integrator import integrator
+from src.physics.scenarios import SCENARIOS, Scenario
 
 
 @dataclass(frozen=True)

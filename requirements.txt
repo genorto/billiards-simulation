@@ -1,5 +1,6 @@
 numpy>=2.5.3
 matplotlib>=3.10
+mypy>=1.14
 pytest>=8.0
 scipy>=1.18.1
 scipy-stubs>=1.18.1.0

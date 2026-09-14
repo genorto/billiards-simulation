@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from src.analysis import expected_velocities_after_collision
+from src.physics.analysis import expected_velocities_after_collision
 from tests.conftest import SimulationResult
 
 

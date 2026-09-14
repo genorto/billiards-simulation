@@ -1,6 +1,6 @@
 import numpy as np
 
-from src import forces, state
+from src.physics import forces, state
 
 
 def dynamics(

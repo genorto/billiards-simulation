@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.state import Ball, Vec2
+from src.physics.state import Ball, Vec2
 
 
 def hertz_force(k: float, delta_x: float) -> float:

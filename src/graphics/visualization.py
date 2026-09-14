@@ -4,9 +4,9 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.patches import Circle
 from matplotlib.text import Text
 
-from src.analysis import ConservationResult
-from src.plotting import draw_conservation_errors
-from src.state import Ball
+from src.physics.analysis import ConservationResult
+from src.graphics.plotting import draw_conservation_errors
+from src.physics.state import Ball
 
 
 def _square_limits(
