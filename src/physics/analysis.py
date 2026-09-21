@@ -36,14 +36,22 @@ def kinetic_energy(y: np.ndarray, ball1: Ball, ball2: Ball) -> np.ndarray:
     return energy1 + energy2
 
 
-def hertz_potential_energy(
-    y: np.ndarray, ball1: Ball, ball2: Ball, k: float
-) -> np.ndarray:
+def _overlap(y: np.ndarray, ball1: Ball, ball2: Ball) -> np.ndarray:
     position1 = y[0:2]
     position2 = y[4:6]
 
     distance = np.linalg.norm(position1 - position2, axis=0)
-    overlap = np.maximum(ball1.radius + ball2.radius - distance, 0.0)
+    return np.maximum(ball1.radius + ball2.radius - distance, 0.0)
+
+
+def deformation(y: np.ndarray, ball1: Ball, ball2: Ball) -> np.ndarray:
+    return _overlap(y, ball1, ball2)
+
+
+def hertz_potential_energy(
+    y: np.ndarray, ball1: Ball, ball2: Ball, k: float
+) -> np.ndarray:
+    overlap = _overlap(y, ball1, ball2)
     return (2.0 / 5.0) * k * overlap**2.5
 
 

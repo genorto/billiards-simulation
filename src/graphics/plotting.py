@@ -9,6 +9,9 @@ def _plot_error(
     t: np.ndarray,
     values: np.ndarray,
     ylabel: str,
+    *,
+    title: str | None = None,
+    show_markers: bool = False,
 ) -> None:
     if np.any(np.isinf(values)):
         ax.set_axis_off()
@@ -22,10 +25,30 @@ def _plot_error(
         )
         return
 
-    ax.plot(t, values)
+    ax.plot(t, values, marker="." if show_markers else None)
     ax.set_xlabel("Время, с")
     ax.set_ylabel(ylabel)
+    if title:
+        ax.set_title(title, fontsize=10)
     ax.grid(alpha=0.3)
+
+
+def draw_deformation(
+    ax: Axes,
+    t: np.ndarray,
+    deformation: np.ndarray,
+    *,
+    title: str | None = None,
+    show_markers: bool = False,
+) -> None:
+    _plot_error(
+        ax,
+        t,
+        deformation * 1000.0,
+        "Деформация δ, мм",
+        title=title,
+        show_markers=show_markers,
+    )
 
 
 def draw_conservation_errors(
