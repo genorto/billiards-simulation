@@ -12,8 +12,11 @@ def main() -> None:
     parser.add_argument(
         "scenario",
         nargs="?",
-        default=SCENARIOS[0].name,
-        help="Название сценария",
+        default=None,
+        help=(
+            "Название сценария. Если не указано, откроется окно "
+            "для ручного ввода параметров шаров"
+        ),
     )
     parser.add_argument(
         "--list",
@@ -30,9 +33,17 @@ def main() -> None:
             print(available_scenario.name)
         return
 
-    scenario = find_scenario(args.scenario)
-    if scenario is None:
-        parser.error(f"Сценарий {args.scenario!r} не найден. Используйте --list")
+    if args.scenario is None:
+        from src.graphics.setup_form import run_setup_form
+
+        scenario = run_setup_form()
+        if scenario is None:
+            print("Настройка отменена")
+            return
+    else:
+        scenario = find_scenario(args.scenario)
+        if scenario is None:
+            parser.error(f"Сценарий {args.scenario!r} не найден. Используйте --list")
 
     from src.graphics.visualization import animate_simulation
 
